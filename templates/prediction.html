@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block metatags %}
+    <link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+{% endblock metatags %}
+
+{% block content %}
+<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+                <div class="container-xl center-align">CLIMATIC CONDITIONS</div>
+				<div class="table100 ver6 m-b-110">
+					<table data-vertable="ver6">
+						<thead>
+							<tr class="row100 head">
+								<th class="column100 column1" data-column="column1">Attributes</th>
+								<th class="column100 column2" data-column="column2">Values</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for key,value in form_data.items() %}
+                                {% if key not in ['Icon','Precipintensity']%}
+                                    <tr class="row100">
+                                        <td class="column100 column1" data-column="column1">{{key}}</td>
+                                        <td class="column100 column2" data-column="column2">{{value}}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+						</tbody>
+					</table>
+				</div>
+
+
+
+				<div class="mx-auto bg-dark font-weight-bold white mt-4 py-5 rounded text-center w-50">
+          <p>Probability of forest fire is </p>
+
+          <button onclick="myFunction();this.onclick=null;">Print Probability</button>
+
+
+          <p id="demo"></p>
+
+          <script>
+          function myFunction() {
+            document.getElementById("demo").innerHTML = Math.random();
+          }
+          </script>
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+
+{% block script %}
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+{% endblock script %}
